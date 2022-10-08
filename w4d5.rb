@@ -67,8 +67,37 @@ def clever_octopus(arr)
 
     longest_fish
 end
+#O(n)
 
 p clever_octopus(fish_arr)
 
 tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+
+
+
+def slow_dance(direction_str, arr)
+
+    n = 0
+    while n < arr.length
+        return n if arr[n] == direction_str
+        n += 1
+    end
+
+end
+#O(n)
+
+# p slow_dance("up", tiles_array)
+# p slow_dance("right-down", tiles_array)
+
+def constant_dance(direction_str, hash)
+    hash[direction_str]
+end
+#O(1)
+
+tiles_hash = {}
+tiles_array.each {|direction| tiles_hash[direction] = tiles_array.index(direction)}
+p tiles_hash
+
+p constant_dance("up", tiles_hash)
+p constant_dance("right-down", tiles_hash)
 
