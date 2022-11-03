@@ -37,4 +37,25 @@ function anagrams(str1, str2) {
 console.log(anagrams("bob", "obb"));
 console.log(anagrams("bob", "orb"));
 
+function bSearch(arr, target) {
 
+    if (arr.length < 1) return null;
+
+    let midpoint = Math.floor(arr.length / 2);
+    let leftArr = arr.slice(0, midpoint);
+    let rightArr = arr.slice(midpoint + 1);
+    if (arr[midpoint] === target) {
+        return midpoint;
+    } else if (target < arr[midpoint]) {
+        return bSearch(leftArr, target);
+    } else {
+        result = bSearch(rightArr, target)
+
+        if (result === null) return null;
+
+        return result += 1 + leftArr.length
+    }
+}
+
+array = [1, 3, 5, 6, 7, 9, 13]
+console.log(bSearch(array, 13))
