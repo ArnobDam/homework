@@ -59,3 +59,46 @@ function bSearch(arr, target) {
 
 array = [1, 3, 5, 6, 7, 9, 13]
 console.log(bSearch(array, 13))
+
+function digitalRoot(num) {
+    while (num >= 10) {
+        num = digitalRootStep(num);
+    }
+
+    return num;
+}
+
+function digitalRootStep(num) {
+    let root = 0;
+    while (num > 0) {
+        root += (num % 10);
+
+        num = Math.floor(num / 10);
+    }
+
+    return root;
+}
+
+console.log(digitalRoot(19))
+
+function doubler(arr) {
+    newArr = []
+
+    arr.forEach((ele) => newArr.push(ele * 2));
+
+    return newArr;
+}
+
+function exponent(b, n) {
+    if (n === 0) return 1;
+    if (n === 1) return b;
+
+    if (n > 1) {
+        return b * exponent(b, n - 1)
+    } else {
+        return (1 / (b * exponent(b, (-n - 1))))
+    }
+
+}
+
+console.log(exponent(5, -3))
